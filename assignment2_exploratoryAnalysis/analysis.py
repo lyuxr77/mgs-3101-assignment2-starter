@@ -12,3 +12,6 @@ print("Missing Values per Column:\n", df.isna().sum())
 numeric_columns = ['order_value_EUR', 'cost']
 descriptive_statistics = df[numeric_columns].agg(['count', 'mean', 'median', 'min', 'max', 'std'])
 print("Descriptive Statistics:\n", descriptive_statistics)
+
+category_statistics = df.groupby('category')['order_value_EUR'].agg(['count','mean','median', 'min', 'max', 'std'])
+print("Order Value Stats by Category:\n", category_statistics)
