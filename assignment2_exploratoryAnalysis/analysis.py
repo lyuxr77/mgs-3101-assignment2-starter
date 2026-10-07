@@ -15,3 +15,8 @@ print("Descriptive Statistics:\n", descriptive_statistics)
 
 category_statistics = df.groupby('category')['order_value_EUR'].agg(['count','mean','median', 'min', 'max', 'std'])
 print("Order Value Stats by Category:\n", category_statistics)
+
+highest_row = df[df['order_value_EUR'] == df['order_value_EUR'].max()]
+lowest_row = df[df['order_value_EUR'] == df['order_value_EUR'].min()]
+print("Highest Order Value Row:\n", highest_row)
+print("Lowest Order Value Row:\n", lowest_row)
