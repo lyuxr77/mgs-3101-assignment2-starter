@@ -44,3 +44,8 @@ print(f"Recommendation 1 - Low margin orders (< 15% profit margin): {len(low_mar
 top_categories = df.groupby('category')['order_value_EUR'].agg(['count', 'mean']).sort_values(by='mean', ascending=False)
 print("\nRec 2 - Categories Ranked by Average Order Value:")
 print(top_categories)
+
+#Recommendation 3
+country_performance = df.groupby('country')['order_value_EUR'].agg(['count', 'mean', 'sum']).sort_values(by='mean', ascending=False)
+print("\nRecommendation 3 - Country Performance Breakdown:")
+print(country_performance)
