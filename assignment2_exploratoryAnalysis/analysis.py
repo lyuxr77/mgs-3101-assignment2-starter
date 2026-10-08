@@ -34,3 +34,7 @@ print(f"1. Dataset consists of {df.shape[0]} rows and {df.shape[1]} columns with
 print(f"2. Overall Average Order Value is €{avg_order_value:,.2f}, passing the €100,000 threshold.")
 print(f"3. Clothing leads total volume (155 orders), while Outdoors achieves the highest average order value (€118,781.51).")
 print(f"4. Average cost is €{df['cost'].mean():,.2f}, showing a healthy gross margin profile.")
+
+df['profit_margin'] = (df['order_value_EUR'] - df['cost']) / df['order_value_EUR']
+low_margin_orders = df[df['profit_margin'] < 0.15]
+print(f"Recommendation 1 - Low margin orders (< 15% profit margin): {len(low_margin_orders)} records found.")
