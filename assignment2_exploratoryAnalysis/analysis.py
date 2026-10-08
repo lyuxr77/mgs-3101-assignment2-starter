@@ -41,9 +41,6 @@ low_margin_orders = df[df['profit_margin'] < 0.15]
 print(f"Recommendation 1 - Low margin orders (< 15% profit margin): {len(low_margin_orders)} records found.")
 
 #Recommendation 2
-# top_categories = df.groupby('category')['order_value_EUR'].agg(['count', 'mean']).sort_values(by='mean', ascending=False)
-# print("\nRecommendation 2 - Categories Ranked by Average Order Value:"+str(top_categories.shape[0]))
 top_categories = df.groupby('category')['order_value_EUR'].agg(['count', 'mean']).sort_values(by='mean', ascending=False)
-
 print("\nRec 2 - Categories Ranked by Average Order Value:")
 print(top_categories)
