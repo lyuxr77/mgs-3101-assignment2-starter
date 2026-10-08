@@ -1,5 +1,7 @@
+from pathlib import Path
 import pandas as pd
-df = pd.read_csv('../data/Sales-Export_2019-2020.csv')
+df = pd.read_csv('../data/Sales-Export_2019-2020.csv',thousands=',', skipinitialspace=True)
+df.columns = df.columns.str.strip()
 
 print("Data Shape:", df.shape)
 
