@@ -1,0 +1,26 @@
+Analysis and Recommendations
+
+I. understanding of the data's structure and quality
+	The dataset “Sales-Export_2019-2020.csv” consists of 1,000 sales order records and 10 columns. And there are only two continuous numeric variables, which are “order_value_EUR” and “cost”. And also the database has a high quality because when I used df.isna ().sum() to check is there are any missing values, I found that it shows 0, which means there’s no missing data. However, the initial data needs to be clean up due to two formatting issues, one is the leading spaces in headers, another one is the thousand separator formatting. Thus, I solved the problem by using pd.read_csv ('../data/Sales-Export_2019-2020.csv', thousands=',', skipinitialspace=True) and df.columns.str.strip (), keeping the formats are correct to calculate.
+
+II. Descriptive Patterns Found
+1. Symmetrical Distribution of Order Values and Costs
+	The overall average order value is €113,361.74, with a median of €105,419.43. The mean of cost is €94,369.31, with a median of €87,094.76. Because the mean and median values are relatively close, the financial data exhibits a balance distribution without extreme skewness. 
+2. Different category has different performance
+	Different category reveals distinct business contribution. For example, Clothing is the volume leader, which accounts for the highest transaction count with 155 orders, and its average order values €113,946.34. While Accessories is the value leader, which achieves the highest average order value at €134398.02 across 35 orders. 
+3. Major Orders Concentrated on PC Devices
+	Looking at the highest order values and large enterprise orders are mainly processed on PC devices. And the single largest order in the dataset: €383,996.76, with a cost of €304,701.43 made in the UK was also using a PC.
+
+III. Threshold Evaluation & Justification
+	I chose €100,000 as the threshold because I thought keeping the average order value above €100,000 helps cover operational expenses, sales commissions, and shipping costs for commercial retail and business sales. And the result shows a PASS of this database, which means the market runs well.
+
+IV. Data-Backed Recommendations
+1. Pay more attention to low profit margin orders
+Action: Pay close attention to orders with low profit margin, for instance, whose profit margin is below 15%. And tried other strategies to improve the profit or cut the categories losing money directly.
+Data Evidence: I calculate profit margin to identify orders with low profit margin that would reduce company's total profit. And the result shows there are 312 records that below 15%.
+2. Focus on categories with high value
+Action: Encourage sales representatives to recommend more Outdoors and Accessories products to their potential customers. And also prepare more inventories on these high-value categories.
+Data Evidence: Outdoors has the highest average order value: €118,781.51 among main product types, and Accessories: €134,398.02 reached on average. This is much more profitable for company due to its higher revenue per order, while the lower value category like Electronics only reached €108075.21. 
+3. Allocate more resources to markets performing well
+Action: Allocate more resources like sales representatives and inventories to key markets like the Luxembourg. And also consider to deduct surplus resources in smaller markets like the Denmark.
+Data Evidence: The Luxembourg produced the highest average order: €132434.11, showing strong market demand for large purchases. While the small market like Denmark shows only €69382.14 in average order.
